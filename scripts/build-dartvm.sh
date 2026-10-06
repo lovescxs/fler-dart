@@ -371,6 +371,10 @@ fi
 # Dart 3.13+ compat patches (ported from upstream v0.5.1)
 bash "$REPO_DIR/scripts/patch-dart313.sh" "$BLUTTER_DIR/blutter/src"
 
+# Dart 3.13.x runtime fixes: idempotent VM init (no more "Flags already set" poisoning)
+# + tolerant abstract-type dispatch (no more FATAL "Invalid abstract type" on 3.13.x snapshots)
+bash "$REPO_DIR/scripts/patch-blutter-313x.sh" "$BLUTTER_DIR/blutter/src"
+
 # ═══════════════════════════════════════════════
 # Step 1c: Inject NDK toolchain + ICU fixes
 # ═══════════════════════════════════════════════
